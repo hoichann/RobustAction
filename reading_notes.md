@@ -324,7 +324,7 @@ barplot(comparison.mat, beside = TRUE,
 title(main = "個別の属性の比較: メディチ vs ストロッツィ", cex.main = 1.8, line = 1)
 ```
 
-![](Padgett1993_Medici_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](reading_notes_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 →
 累積値ではストロッツィ家がメディチ家を上回っている（ただし約150年間の累積なので単純な優劣比較には注意が必要）。
@@ -441,7 +441,7 @@ plot(g.marriage, layout = layout,
 title(main = "媒介中心性", cex.main = 2, line = 0.5)
 ```
 
-![](Padgett1993_Medici_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](reading_notes_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 ``` r
 par(mfrow = c(1, 1))
@@ -501,7 +501,7 @@ plot(g.marriage, layout = layout,
 title(main = "媒介中心性", cex.main = 2, line = 0.5)
 ```
 
-![](Padgett1993_Medici_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](reading_notes_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 ``` r
 par(mfrow = c(1, 1))
@@ -544,7 +544,7 @@ p2 <- ggplot(scatter.df, aes(x = priorates, y = betweenness, label = family)) +
 gridExtra::grid.arrange(p1, p2, ncol = 2)
 ```
 
-![](Padgett1993_Medici_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](reading_notes_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 → 富が最大なのはストロッツィ家だが、媒介中心性はほぼゼロ。
 メディチ家は富では2位だが、媒介中心性では圧倒的1位。
@@ -640,7 +640,7 @@ plot(g.business, layout = layout.b,
 title(main = "媒介中心性", cex.main = 2, line = 0.5)
 ```
 
-![](Padgett1993_Medici_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+![](reading_notes_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 
 ``` r
 par(mfrow = c(1, 1))
@@ -678,7 +678,7 @@ plot(g.business, layout = layout.b,
 title(main = "ビジネスネットワーク（媒介中心性）", cex.main = 2, line = 0.5)
 ```
 
-![](Padgett1993_Medici_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+![](reading_notes_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
 ``` r
 par(mfrow = c(1, 1))
@@ -703,7 +703,7 @@ ggplot(scatter.biz, aes(x = marriage.bet, y = business.bet, label = family)) +
   theme(plot.title = element_text(size = 18, hjust = 0.5))
 ```
 
-![](Padgett1993_Medici_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
+![](reading_notes_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
 
 ## 3.5 婚姻とビジネスで繋がる相手の違い
 
@@ -827,7 +827,7 @@ plot(g.no.medici,
 title(main = "メディチ家を除去", cex.main = 2, line = 0.5)
 ```
 
-![](Padgett1993_Medici_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
+![](reading_notes_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
 
 ``` r
 par(mfrow = c(1, 1))
@@ -986,7 +986,7 @@ legend("bottomleft",
        border = NA, cex = 1.6, bty = "n")
 ```
 
-![](Padgett1993_Medici_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
+![](reading_notes_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
 
 ``` r
 par(mfrow = c(1, 1))
