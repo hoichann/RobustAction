@@ -445,7 +445,7 @@ ggplot(scatter.biz, aes(x = marriage.bet, y = business.bet, label = family)) +
 
 ## 3.5 婚姻とビジネスで繋がる相手の違い
 
-```{r}
+```{r, results='hold'}
 # メディチ家の婚姻相手とビジネス相手を比較
 medici.marriage <- neighbors(g.marriage, "Medici")$name
 medici.business <- neighbors(g.business, "Medici")$name
@@ -457,7 +457,7 @@ cat("婚姻のみ:", paste(setdiff(medici.marriage, medici.business), collapse =
 cat("ビジネスのみ:", paste(setdiff(medici.business, medici.marriage), collapse = ", "), "\n")
 ```
 
-```{r}
+```{r, results='hold'}
 # 同じことをストロッツィ家でも
 strozzi.marriage <- neighbors(g.marriage, "Strozzi")$name
 strozzi.business <- neighbors(g.business, "Strozzi")$name
@@ -467,7 +467,7 @@ cat("ストロッツィ家のビジネス相手:", paste(strozzi.business, colla
 cat("両方で繋がっている:", paste(intersect(strozzi.marriage, strozzi.business), collapse = ", "), "\n")
 ```
 
-```{r}
+```{r, results='hold'}
 # バルバドーリ家 — ビジネスの媒介中心性ではメディチに匹敵する競合
 barbadori.marriage <- neighbors(g.marriage, "Barbadori")$name
 barbadori.business <- neighbors(g.business, "Barbadori")$name
@@ -543,7 +543,7 @@ par(mfrow = c(1, 1))
 連結成分数 = ネットワーク内で辿って到達できる「まとまり」の数。
 1ならば全ノードが繋がっている。増えるとネットワークが分断されたことを意味する。
 
-```{r}
+```{r, results='hold'}
 cat("元のネットワークの連結成分数:", components(g.marriage)$no, "\n")
 cat("メディチ除去後の連結成分数:", components(g.no.medici)$no, "\n")
 
@@ -690,7 +690,7 @@ legend("bottomleft",
 par(mfrow = c(1, 1))
 ```
 
-```{r}
+```{r, results='hold'}
 cat("=== Louvain法 ===\n")
 for (i in 1:length(comm1)) {
   cat("グループ", i, ":", paste(comm1[[i]], collapse = ", "), "\n")
@@ -750,7 +750,7 @@ comparison.df$EB一致 <- ifelse(
 comparison.df
 ```
 
-```{r}
+```{r, results='hold'}
 # 一致率の計算（不明・中立を除く）
 judgeable <- comparison.df$歴史的派閥 %in% c("メディチ派", "オリガルキー派", "孤立")
 

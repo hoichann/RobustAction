@@ -713,32 +713,16 @@ medici.marriage <- neighbors(g.marriage, "Medici")$name
 medici.business <- neighbors(g.business, "Medici")$name
 
 cat("メディチ家の婚姻相手:", paste(medici.marriage, collapse = ", "), "\n")
-```
-
-    ## メディチ家の婚姻相手: Acciaiuoli, Albizzi, Barbadori, Ridolfi, Salviati, Tornabuoni
-
-``` r
 cat("メディチ家のビジネス相手:", paste(medici.business, collapse = ", "), "\n")
-```
-
-    ## メディチ家のビジネス相手: Barbadori, Ginori, Pazzi, Salviati, Tornabuoni
-
-``` r
 cat("両方で繋がっている:", paste(intersect(medici.marriage, medici.business), collapse = ", "), "\n")
-```
-
-    ## 両方で繋がっている: Barbadori, Salviati, Tornabuoni
-
-``` r
 cat("婚姻のみ:", paste(setdiff(medici.marriage, medici.business), collapse = ", "), "\n")
-```
-
-    ## 婚姻のみ: Acciaiuoli, Albizzi, Ridolfi
-
-``` r
 cat("ビジネスのみ:", paste(setdiff(medici.business, medici.marriage), collapse = ", "), "\n")
 ```
 
+    ## メディチ家の婚姻相手: Acciaiuoli, Albizzi, Barbadori, Ridolfi, Salviati, Tornabuoni 
+    ## メディチ家のビジネス相手: Barbadori, Ginori, Pazzi, Salviati, Tornabuoni 
+    ## 両方で繋がっている: Barbadori, Salviati, Tornabuoni 
+    ## 婚姻のみ: Acciaiuoli, Albizzi, Ridolfi 
     ## ビジネスのみ: Ginori, Pazzi
 
 ``` r
@@ -747,20 +731,12 @@ strozzi.marriage <- neighbors(g.marriage, "Strozzi")$name
 strozzi.business <- neighbors(g.business, "Strozzi")$name
 
 cat("ストロッツィ家の婚姻相手:", paste(strozzi.marriage, collapse = ", "), "\n")
-```
-
-    ## ストロッツィ家の婚姻相手: Bischeri, Castellani, Peruzzi, Ridolfi
-
-``` r
 cat("ストロッツィ家のビジネス相手:", paste(strozzi.business, collapse = ", "), "\n")
-```
-
-    ## ストロッツィ家のビジネス相手:
-
-``` r
 cat("両方で繋がっている:", paste(intersect(strozzi.marriage, strozzi.business), collapse = ", "), "\n")
 ```
 
+    ## ストロッツィ家の婚姻相手: Bischeri, Castellani, Peruzzi, Ridolfi 
+    ## ストロッツィ家のビジネス相手:  
     ## 両方で繋がっている:
 
 ``` r
@@ -769,32 +745,16 @@ barbadori.marriage <- neighbors(g.marriage, "Barbadori")$name
 barbadori.business <- neighbors(g.business, "Barbadori")$name
 
 cat("バルバドーリ家の婚姻相手:", paste(barbadori.marriage, collapse = ", "), "\n")
-```
-
-    ## バルバドーリ家の婚姻相手: Castellani, Medici
-
-``` r
 cat("バルバドーリ家のビジネス相手:", paste(barbadori.business, collapse = ", "), "\n")
-```
-
-    ## バルバドーリ家のビジネス相手: Castellani, Ginori, Medici, Peruzzi
-
-``` r
 cat("両方で繋がっている:", paste(intersect(barbadori.marriage, barbadori.business), collapse = ", "), "\n")
-```
-
-    ## 両方で繋がっている: Castellani, Medici
-
-``` r
 cat("婚姻のみ:", paste(setdiff(barbadori.marriage, barbadori.business), collapse = ", "), "\n")
-```
-
-    ## 婚姻のみ:
-
-``` r
 cat("ビジネスのみ:", paste(setdiff(barbadori.business, barbadori.marriage), collapse = ", "), "\n")
 ```
 
+    ## バルバドーリ家の婚姻相手: Castellani, Medici 
+    ## バルバドーリ家のビジネス相手: Castellani, Ginori, Medici, Peruzzi 
+    ## 両方で繋がっている: Castellani, Medici 
+    ## 婚姻のみ:  
     ## ビジネスのみ: Ginori, Peruzzi
 
 ### 3家の比較まとめ
@@ -878,31 +838,20 @@ par(mfrow = c(1, 1))
 
 ``` r
 cat("元のネットワークの連結成分数:", components(g.marriage)$no, "\n")
-```
-
-    ## 元のネットワークの連結成分数: 2
-
-``` r
 cat("メディチ除去後の連結成分数:", components(g.no.medici)$no, "\n")
-```
 
-    ## メディチ除去後の連結成分数: 4
-
-``` r
 # 比較: ストロッツィ家（富で最大）・アルビッツィ家（オリガルキー派のリーダー）を除去した場合
 # アルビッツィ家はメディチ家の歴史上最大のライバルで、1433年にメディチを追放した張本人
 g.no.strozzi <- delete_vertices(g.marriage, "Strozzi")
 g.no.albizzi <- delete_vertices(g.marriage, "Albizzi")
 
 cat("ストロッツィ除去後の連結成分数:", components(g.no.strozzi)$no, "\n")
-```
-
-    ## ストロッツィ除去後の連結成分数: 2
-
-``` r
 cat("アルビッツィ除去後の連結成分数:", components(g.no.albizzi)$no, "\n")
 ```
 
+    ## 元のネットワークの連結成分数: 2 
+    ## メディチ除去後の連結成分数: 4 
+    ## ストロッツィ除去後の連結成分数: 2 
     ## アルビッツィ除去後の連結成分数: 3
 
 → メディチ家を除去するとネットワークが**分断**されるが、
@@ -1045,34 +994,23 @@ par(mfrow = c(1, 1))
 
 ``` r
 cat("=== Louvain法 ===\n")
-```
-
-    ## === Louvain法 ===
-
-``` r
 for (i in 1:length(comm1)) {
   cat("グループ", i, ":", paste(comm1[[i]], collapse = ", "), "\n")
 }
-```
 
-    ## グループ 1 : Acciaiuoli, Medici, Pazzi, Ridolfi, Salviati, Tornabuoni 
-    ## グループ 2 : Albizzi, Ginori, Guadagni, Lamberteschi 
-    ## グループ 3 : Barbadori, Bischeri, Castellani, Peruzzi, Strozzi 
-    ## グループ 4 : Pucci
-
-``` r
 cat("\n=== Edge Betweenness法 ===\n")
-```
-
-    ## 
-    ## === Edge Betweenness法 ===
-
-``` r
 for (i in 1:length(comm2)) {
   cat("グループ", i, ":", paste(comm2[[i]], collapse = ", "), "\n")
 }
 ```
 
+    ## === Louvain法 ===
+    ## グループ 1 : Acciaiuoli, Medici, Pazzi, Ridolfi, Salviati, Tornabuoni 
+    ## グループ 2 : Albizzi, Ginori, Guadagni, Lamberteschi 
+    ## グループ 3 : Barbadori, Bischeri, Castellani, Peruzzi, Strozzi 
+    ## グループ 4 : Pucci 
+    ## 
+    ## === Edge Betweenness法 ===
     ## グループ 1 : Acciaiuoli, Medici, Ridolfi, Tornabuoni 
     ## グループ 2 : Albizzi, Ginori, Guadagni, Lamberteschi 
     ## グループ 3 : Barbadori, Bischeri, Castellani, Peruzzi, Strozzi 
@@ -1170,20 +1108,12 @@ louvain.accuracy <- sum(comparison.df$Louvain一致[judgeable] == "○") / sum(j
 eb.accuracy <- sum(comparison.df$EB一致[judgeable] == "○") / sum(judgeable)
 
 cat("判定可能な家:", sum(judgeable), "家\n")
-```
-
-    ## 判定可能な家: 13 家
-
-``` r
 cat("Louvain法の一致率:", round(louvain.accuracy * 100, 1), "%\n")
-```
-
-    ## Louvain法の一致率: 84.6 %
-
-``` r
 cat("Edge Betweenness法の一致率:", round(eb.accuracy * 100, 1), "%\n")
 ```
 
+    ## 判定可能な家: 13 家
+    ## Louvain法の一致率: 84.6 %
     ## Edge Betweenness法の一致率: 69.2 %
 
 →
